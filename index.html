@@ -1,303 +1,631 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Legal & Business Kit - Ultimate Suite</title>
+    <title>Freelancer Legal & Operations Suite</title>
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --bg-card: #111827;
-            --bg-input: #0b0f19;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --success: #10b981;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --border: #1f2937;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 12px;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-main); color: var(--text-main); padding: 20px; line-height: 1.6; }
-        .wrapper { max-width: 1000px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8); overflow: hidden; }
-        header { background: linear-gradient(135deg, #111827, #0b0f19); padding: 35px 30px; text-align: center; border-bottom: 1px solid var(--border); }
-        header h1 { font-size: 26px; color: #60a5fa; margin-bottom: 8px; font-weight: 800; letter-spacing: 0.5px; }
-        header p { color: var(--text-muted); font-size: 13px; max-width: 750px; margin: 0 auto; }
-        
-        .nav-tabs { display: flex; background: #030712; border-bottom: 1px solid var(--border); overflow-x: auto; padding: 6px; gap: 4px; }
-        .tab-btn { flex: 0 0 auto; padding: 10px 16px; background: rgba(31, 41, 55, 0.4); border: 1px solid var(--border); color: var(--text-muted); font-weight: 700; font-size: 11px; cursor: pointer; text-transform: uppercase; white-space: nowrap; transition: all 0.2s; border-radius: 6px; }
-        .tab-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
 
-        .content { padding: 30px; }
-        .panel { display: none; }
-        .panel.active { display: block; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-        .section-title { font-size: 14px; font-weight: 700; color: #60a5fa; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #60a5fa; padding-left: 10px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
-        @media(max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-        
-        .field { margin-bottom: 18px; }
-        label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; }
-        input, select, textarea { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-main); padding: 12px 14px; border-radius: 8px; font-size: 14px; transition: all 0.3s; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15); }
-        textarea { resize: vertical; height: 90px; }
-        
-        .btn-action { display: block; width: 100%; background: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; transition: background 0.2s; }
-        .btn-action:hover { background: var(--accent-hover); }
-        
-        .output-section { margin-top: 30px; border-top: 2px dashed var(--border); padding-top: 25px; }
-        .document-preview { background: #0b0f19; border: 1px solid var(--border); border-radius: 10px; padding: 20px; font-family: "Courier New", Courier, monospace; font-size: 13px; color: #e5e7eb; white-space: pre-wrap; line-height: 1.7; max-height: 380px; overflow-y: auto; margin-bottom: 15px; }
-        .btn-download { background: var(--success); color: white; border: none; padding: 13px; border-radius: 8px; font-weight: 700; width: 100%; cursor: pointer; font-size: 13px; transition: opacity 0.2s; text-transform: uppercase; }
-        .btn-download:hover { opacity: 0.9; }
-        
-        footer { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 30px; padding-top: 15px; border-top: 1px solid var(--border); }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header & Value Badges */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .badge-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #334155;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* What's Included Section */
+        .included-section {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .included-section h3 {
+            color: #1e40af;
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .included-item {
+            font-size: 0.95rem;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Navigation Groups & Tabs */
+        .nav-groups {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .nav-group-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .tab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Workspace Card & Textarea Layout */
+        .workspace-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .workspace-card h2 {
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+            color: #0f172a;
+        }
+
+        .output-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 380px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #f8fafc;
+            color: #0f172a;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #334155;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media(max-width: 768px) {
+            body { padding: 10px; }
+            .workspace-card { padding: 15px; }
+            textarea { height: 300px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
+<div class="container">
     <header>
-        <h1>Freelancer Legal & Business Kit</h1>
-        <p>Complete Operations Suite: Contracts, Milestones, NDA, Invoices, Welcome Pack & Handover Checklists</p>
+        <h1>Freelancer Legal & Operations Suite</h1>
+        <p>Protect Every Project. Stop Scope Creep Forever. Get Paid With Confidence.</p>
     </header>
 
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'p1')">1. Contract</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p2')">2. Scope</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p3')">3. Milestones</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p4')">4. Revisions</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p5')">5. Change Req</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p6')">6. Invoice</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p7')">7. Welcome Pack</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p8')">8. Handover</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p9')">9. Cancellation</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p10')">10. NDA</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p11')">11. Copyright</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p12')">12. Emails</button>
-        <button class="tab-btn" onclick="switchTab(event, 'p13')">13. Questions</button>
+    <!-- Trust & Value Badges -->
+    <div class="badges-grid">
+        <div class="badge-card">✅ 13 Professional Templates</div>
+        <div class="badge-card">⚡ Instant PDF Export</div>
+        <div class="badge-card">📝 Editable DOCX Format</div>
+        <div class="badge-card">🏢 Enterprise Ready</div>
     </div>
 
-    <div class="content">
-        <!-- 1. Contract Generator -->
-        <div id="p1" class="panel active">
-            <div class="section-title">1. Contract Generator</div>
-            <div class="grid-2">
-                <div class="field"><label>Provider Name</label><input type="text" id="c_prov" value="Digital Pro Studio"></div>
-                <div class="field"><label>Client Name</label><input type="text" id="c_cli" value="Global Ventures LLC"></div>
-            </div>
-            <div class="field"><label>Project Title</label><input type="text" id="c_title" value="Complete Branding & UI/UX System"></div>
-            <div class="field"><label>Total Budget ($)</label><input type="number" id="c_bud" value="2500"></div>
-            <button class="btn-action" onclick="gen(1)">Generate Contract</button>
-            <div class="output-section" id="out_1" style="display:none;">
-                <div class="document-preview" id="prev_1"></div>
-                <button class="btn-download" onclick="downloadFile(1, 'Contract.txt')">📥 Download Contract</button>
-            </div>
+    <!-- What's Included Section -->
+    <div class="included-section">
+        <h3>What's Included in This Suite:</h3>
+        <div class="included-grid">
+            <div class="included-item">✔ Client Contract Generator</div>
+            <div class="included-item">✔ Scope Lock Agreement</div>
+            <div class="included-item">✔ Payment Milestone Planner</div>
+            <div class="included-item">✔ Change Request Form</div>
+            <div class="included-item">✔ Invoice Generator</div>
+            <div class="included-item">✔ NDA Agreement</div>
+            <div class="included-item">✔ Copyright Transfer</div>
+            <div class="included-item">✔ Welcome Pack</div>
+            <div class="included-item">✔ Handover Checklist</div>
+            <div class="included-item">✔ Client Emails</div>
         </div>
-
-        <!-- 2. Scope Definition -->
-        <div id="p2" class="panel">
-            <div class="section-title">2. Scope Definition</div>
-            <div class="field"><label>Detailed Scope Breakdown</label><textarea id="sc_desc">1. Brand Identity Assets (Logo, Typography, Color Palettes).\n2. UI/UX Wireframes & Interactive Prototype in Figma.\n3. Frontend Code & Component System Delivery.</textarea></div>
-            <button class="btn-action" onclick="gen(2)">Generate Scope Definition</button>
-            <div class="output-section" id="out_2" style="display:none;">
-                <div class="document-preview" id="prev_2"></div>
-                <button class="btn-download" onclick="downloadFile(2, 'Scope_Definition.txt')">📥 Download Scope</button>
-            </div>
-        </div>
-
-        <!-- 3. Payment Milestones -->
-        <div id="p3" class="panel">
-            <div class="section-title">3. Payment Milestones</div>
-            <div class="field"><label>Milestone Structure</label><textarea id="ms_desc">Milestone 1: Research & Wireframes (50% Deposit - $1,250)\nMilestone 2: Final Design & Handover (50% Balance - $1,250)</textarea></div>
-            <button class="btn-action" onclick="gen(3)">Generate Milestones</button>
-            <div class="output-section" id="out_3" style="display:none;">
-                <div class="document-preview" id="prev_3"></div>
-                <button class="btn-download" onclick="downloadFile(3, 'Payment_Milestones.txt')">📥 Download Milestones</button>
-            </div>
-        </div>
-
-        <!-- 4. Revision Limits -->
-        <div id="p4" class="panel">
-            <div class="section-title">4. Revision Limits Agreement</div>
-            <div class="grid-2">
-                <div class="field"><label>Included Revision Rounds</label><input type="number" id="rv_rounds" value="2"></div>
-                <div class="field"><label>Extra Round Hourly Rate ($)</label><input type="number" id="rv_rate" value="75"></div>
-            </div>
-            <button class="btn-action" onclick="gen(4)">Generate Revision Policy</button>
-            <div class="output-section" id="out_4" style="display:none;">
-                <div class="document-preview" id="prev_4"></div>
-                <button class="btn-download" onclick="downloadFile(4, 'Revision_Limits.txt')">📥 Download Policy</button>
-            </div>
-        </div>
-
-        <!-- 5. Change Request Forms -->
-        <div id="p5" class="panel">
-            <div class="section-title">5. Change Request Form (Scope Creep)</div>
-            <div class="field"><label>Extra Feature / Modification</label><textarea id="cr_text">Add multi-language support and an extra dark-mode UI dashboard.</textarea></div>
-            <div class="grid-2">
-                <div class="field"><label>Additional Cost ($)</label><input type="number" id="cr_cost" value="450"></div>
-                <div class="field"><label>Timeline Extension (Days)</label><input type="number" id="cr_days" value="4"></div>
-            </div>
-            <button class="btn-action" onclick="gen(5)">Generate Change Request</button>
-            <div class="output-section" id="out_5" style="display:none;">
-                <div class="document-preview" id="prev_5"></div>
-                <button class="btn-download" onclick="downloadFile(5, 'Change_Request.txt')">📥 Download Form</button>
-            </div>
-        </div>
-
-        <!-- 6. Invoice Template -->
-        <div id="p6" class="panel">
-            <div class="section-title">6. Professional Invoice Template</div>
-            <div class="grid-2">
-                <div class="field"><label>Invoice ID</label><input type="text" id="inv_num" value="INV-2026-001"></div>
-                <div class="field"><label>Amount ($)</label><input type="number" id="inv_amt" value="1250"></div>
-            </div>
-            <button class="btn-action" onclick="gen(6)">Generate Invoice</button>
-            <div class="output-section" id="out_6" style="display:none;">
-                <div class="document-preview" id="prev_6"></div>
-                <button class="btn-download" onclick="downloadFile(6, 'Invoice.txt')">📥 Download Invoice</button>
-            </div>
-        </div>
-
-        <!-- 7. Client Welcome Pack -->
-        <div id="p7" class="panel">
-            <div class="section-title">7. Client Welcome Pack</div>
-            <div class="field"><label>Communication & Operating Hours</label><textarea id="wp_comm">Slack & Email. Available Mon-Fri, response within 24 hours.</textarea></div>
-            <button class="btn-action" onclick="gen(7)">Generate Welcome Pack</button>
-            <div class="output-section" id="out_7" style="display:none;">
-                <div class="document-preview" id="prev_7"></div>
-                <button class="btn-download" onclick="downloadFile(7, 'Welcome_Pack.txt')">📥 Download Welcome Pack</button>
-            </div>
-        </div>
-
-        <!-- 8. Project Handover Checklist -->
-        <div id="p8" class="panel">
-            <div class="section-title">8. Project Handover Checklist</div>
-            <div class="field"><label>Final Assets Summary</label><textarea id="ho_text">1. Figma design system files.\n2. Raw vector assets and typography fonts.\n3. Full source code repository access.</textarea></div>
-            <button class="btn-action" onclick="gen(8)">Generate Handover Checklist</button>
-            <div class="output-section" id="out_8" style="display:none;">
-                <div class="document-preview" id="prev_8"></div>
-                <button class="btn-download" onclick="downloadFile(8, 'Handover_Checklist.txt')">📥 Download Checklist</button>
-            </div>
-        </div>
-
-        <!-- 9. Cancellation Agreement -->
-        <div id="p9" class="panel">
-            <div class="section-title">9. Cancellation Agreement</div>
-            <div class="field"><label>Termination Terms / Kill Fee</label><textarea id="can_text">Project terminated by mutual consent. Completed work billed proportionally, deposit retained.</textarea></div>
-            <button class="btn-action" onclick="gen(9)">Generate Cancellation Agreement</button>
-            <div class="output-section" id="out_9" style="display:none;">
-                <div class="document-preview" id="prev_9"></div>
-                <button class="btn-download" onclick="downloadFile(9, 'Cancellation_Agreement.txt')">📥 Download Agreement</button>
-            </div>
-        </div>
-
-        <!-- 10. NDA -->
-        <div id="p10" class="panel">
-            <div class="section-title">10. Non-Disclosure Agreement (NDA)</div>
-            <div class="field"><label>Purpose of Information Sharing</label><input type="text" id="nda_purp" value="Evaluating proprietary product software designs and business workflows."></div>
-            <button class="btn-action" onclick="gen(10)">Generate NDA</button>
-            <div class="output-section" id="out_10" style="display:none;">
-                <div class="document-preview" id="prev_10"></div>
-                <button class="btn-download" onclick="downloadFile(10, 'NDA_Agreement.txt')">📥 Download NDA</button>
-            </div>
-        </div>
-
-        <!-- 11. Copyright Transfer -->
-        <div id="p11" class="panel">
-            <div class="section-title">11. Copyright Transfer Document</div>
-            <div class="field"><label>Assigned Deliverables</label><input type="text" id="cp_work" value="All final custom graphic illustrations and source code files."></div>
-            <button class="btn-action" onclick="gen(11)">Generate Copyright Transfer</button>
-            <div class="output-section" id="out_11" style="display:none;">
-                <div class="document-preview" id="prev_11"></div>
-                <button class="btn-download" onclick="downloadFile(11, 'Copyright_Transfer.txt')">📥 Download Transfer</button>
-            </div>
-        </div>
-
-        <!-- 12. Email Templates -->
-        <div id="p12" class="panel">
-            <div class="section-title">12. Email Templates Kit</div>
-            <div class="field"><label>Template Type / Subject</label><input type="text" id="em_sub" value="Project Kickoff & Next Steps"></div>
-            <button class="btn-action" onclick="gen(12)">Generate Email Templates</button>
-            <div class="output-section" id="out_12" style="display:none;">
-                <div class="document-preview" id="prev_12"></div>
-                <button class="btn-download" onclick="downloadFile(12, 'Email_Templates.txt')">📥 Download Templates</button>
-            </div>
-        </div>
-
-        <!-- 13. Client Questions -->
-        <div id="p13" class="panel">
-            <div class="section-title">13. Client Discovery Questionnaire</div>
-            <div class="field"><label>Core Onboarding Questions</label><textarea id="eq_text">1. What are your main business objectives for this project?\n2. Who is your primary target audience?\n3. Do you have existing brand guidelines or style preferences?</textarea></div>
-            <button class="btn-action" onclick="gen(13)">Generate Questionnaire</button>
-            <div class="output-section" id="out_13" style="display:none;">
-                <div class="document-preview" id="prev_13"></div>
-                <button class="btn-download" onclick="downloadFile(13, 'Client_Questions.txt')">📥 Download Questionnaire</button>
-            </div>
-        </div>
-
     </div>
 
-    <footer>
-        Freelancer Legal & Business Kit &bull; Ultimate Enterprise Edition (13-in-1 Suite)
-    </footer>
+    <!-- Grouped Categorized Navigation -->
+    <div class="nav-groups">
+        <div>
+            <div class="nav-group-title">Contracts</div>
+            <div class="tab-list">
+                <button class="tab-btn active" onclick="switchTab(event, 'tab-contract')">Contract</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-nda')">NDA</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-copyright')">Copyright</button>
+            </div>
+        </div>
+        <div>
+            <div class="nav-group-title">Project & Scope</div>
+            <div class="tab-list">
+                <button class="tab-btn" onclick="switchTab(event, 'tab-scope')">Scope Definition</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-milestones')">Milestones</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-revisions')">Revisions Policy</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-changerequest')">Change Request</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-handover')">Handover Checklist</button>
+            </div>
+        </div>
+        <div>
+            <div class="nav-group-title">Business & Client Success</div>
+            <div class="tab-list">
+                <button class="tab-btn" onclick="switchTab(event, 'tab-invoice')">Invoice</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-welcome')">Welcome Pack</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-emails')">Email Templates</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-questionnaire')">Client Questionnaire</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workspace Area -->
+    <div class="workspace-card">
+        <!-- Tab 1: Contract -->
+        <div id="tab-contract" class="tab-content active">
+            <h2>Client Contract Generator</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">PROFESSIONAL SERVICES AGREEMENT
+
+This Professional Services Agreement (the "Agreement") is entered into as of [Date] by and between:
+
+Client: [Client Name] ([Client Company])
+and
+Service Provider: [Your Name / Agency Name]
+
+1. SERVICES & DELIVERABLES
+The Service Provider agrees to perform the services outlined in the attached Project Scope document in a professional and workmanlike manner.
+
+2. COMPENSATION & PAYMENT TERMS
+The Client agrees to pay the total project fee of $[Total Amount]. 
+Payment Schedule:
+- Milestone 1 (Research & Wireframes): 50% Deposit ($1,250) due prior to project kickoff.
+- Milestone 2 (Final Design & Handover): 50% Balance ($1,250) due upon completion and prior to final asset transfer.
+
+3. INTELLECTUAL PROPERTY RIGHTS
+Upon receipt of full and final payment, the Service Provider assigns to the Client all rights, title, and interest in and to the final deliverables.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Client_Contract.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: NDA -->
+        <div id="tab-nda" class="tab-content">
+            <h2>Non-Disclosure Agreement (NDA)</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Mutual Non-Disclosure Agreement ("Agreement") is made between [Your Name] and [Client Name] as of [Date].
+
+1. PURPOSE
+The parties wish to explore a potential business relationship ("Discussion"), and in connection with this Discussion, each party may disclose confidential information.
+
+2. CONFIDENTIAL INFORMATION
+"Confidential Information" refers to any proprietary information, technical data, trade secrets, or know-how disclosed by one party to the other, whether orally or in writing.
+
+3. OBLIGATIONS
+Both parties agree to hold and maintain the Confidential Information in strictest confidence, using the same degree of care used to protect their own confidential data.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('NDA_Agreement.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Copyright -->
+        <div id="tab-copyright" class="tab-content">
+            <h2>Copyright Transfer & Intellectual Property</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">COPYRIGHT ASSIGNMENT AND INTELLECTUAL PROPERTY TRANSFER
+
+Project Title: [Project Name]
+Effective Date: [Date]
+
+1. TRANSFER OF RIGHTS
+Upon receipt of the final payment of $[Amount], [Your Name/Agency] ("Creator") hereby grants, transfers, and assigns to [Client Name] ("Client") all worldwide copyright and intellectual property rights in and to the final approved deliverables.
+
+2. RESERVATION OF RIGHTS
+All preliminary concepts, drafts, unselected designs, and underlying source tools remain the exclusive property of the Creator unless explicitly agreed otherwise.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Copyright_Transfer.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Scope Definition -->
+        <div id="tab-scope" class="tab-content">
+            <h2>Project Scope Definition</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">PROJECT SCOPE DEFINITION DOCUMENT
+
+Project Name: [Project Name]
+Client Name: [Client Name]
+
+1. IN-SCOPE DELIVERABLES
+- Complete UI/UX design wireframes for mobile app.
+- High-fidelity mockups in Figma (up to 10 key screens).
+- Interactive prototype demonstrating primary user flow.
+
+2. OUT-OF-SCOPE WORK
+- Backend development and database configuration.
+- Ongoing post-launch maintenance and continuous updates.
+- Brand logo design or typography rebranding.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Scope_Definition.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: Milestones -->
+        <div id="tab-milestones" class="tab-content">
+            <h2>Payment Milestone Planner</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">PROJECT PAYMENT MILESTONE PLANNER
+
+Project: [Project Name]
+Total Agreed Budget: $[Total Amount]
+
+Milestone 1
+Research & Wireframes
+- Description: Initial discovery, moodboards, and wireframe layouts.
+- Payment: 50% Deposit ($1,250) due before commencement.
+
+Milestone 2
+Final Design & Handover
+- Description: Polished high-fidelity mockups and final asset export.
+- Payment: 50% Balance ($1,250) due upon final sign-off.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Payment_Milestones.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Revisions -->
+        <div id="tab-revisions" class="tab-content">
+            <h2>Revision Policy</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">PROJECT REVISION POLICY & GUIDELINES
+
+1. INCLUDED REVISIONS
+Each project tier includes two (2) comprehensive rounds of revisions per milestone. Feedback must be consolidated and submitted in writing by the designated project manager or client representative.
+
+2. ADDITIONAL REVISIONS
+Any modifications requested after final approval or exceeding the included revision rounds will be billed at an hourly rate of $[Rate]/hour or quoted as a separate change request.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Revision_Policy.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 7: Change Request -->
+        <div id="tab-changerequest" class="tab-content">
+            <h2>Change Request Form</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">PROJECT CHANGE REQUEST FORM
+
+Request ID: #CR-001
+Date: [Date]
+Client: [Client Name]
+
+1. DESCRIPTION OF REQUESTED CHANGES
+[Detail the new features, structural changes, or out-of-scope additions requested by the client]
+
+2. IMPACT ON TIMELINE & BUDGET
+- Additional Cost: $[Extra Cost]
+- Extended Timeline: [+X Days]
+- Client Approval Signature: _______________________ Date: _________</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Change_Request_Form.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 8: Handover -->
+        <div id="tab-handover" class="tab-content">
+            <h2>Project Handover Checklist</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">FINAL PROJECT HANDOVER CHECKLIST
+
+Project: [Project Name]
+Client: [Client Name]
+
+[ ] All final source files (Figma, Illustrator, Code repository) organized and uploaded.
+[ ] Brand assets, fonts, and style guide transferred to client cloud storage.
+[ ] Final invoice settled in full and receipt issued.
+[ ] Post-launch support period activated (30 days warranty).</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Handover_Checklist.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 9: Invoice -->
+        <div id="tab-invoice" class="tab-content">
+            <h2>Professional Invoice Template</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">INVOICE #INV-2026-001
+
+From:
+[Your Name / Agency Name]
+[Your Address / Email]
+
+To:
+[Client Name]
+[Client Company / Address]
+
+Date Issued: [Date]
+Payment Due Date: [Due Date]
+
+Description                             Qty     Rate        Amount
+------------------------------------------------------------------
+Milestone 2: Final Design & Handover     1      $1,250      $1,250
+
+------------------------------------------------------------------
+TOTAL DUE:                                                  $1,250
+Payment Method: Bank Transfer / PayPal</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Invoice_Template.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 10: Welcome Pack -->
+        <div id="tab-welcome" class="tab-content">
+            <h2>Client Welcome Pack</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">WELCOME TO OUR COLLABORATION!
+
+Dear [Client Name],
+
+We are thrilled to partner with you on [Project Name]! This welcome pack outlines our workflow to ensure a smooth, transparent, and successful journey together.
+
+1. COMMUNICATION CHANNELS
+All formal updates will be shared via email or Slack. Response time is within 24 business hours.
+
+2. PROJECT TIMELINE
+Please review the attached project schedule and milestone breakdown.</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Client_Welcome_Pack.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 11: Emails -->
+        <div id="tab-emails" class="tab-content">
+            <h2>Client Email Templates</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">PROJECT KICKOFF & ONBOARDING EMAIL
+
+Subject: Welcome to [Project Name] — Let's Get Started!
+
+Hi [Client Name],
+
+I'm super excited to officially kick off our work on [Project Name]! 
+
+To get everything rolling smoothly, please fill out the attached client questionnaire and review our onboarding schedule. Looking forward to creating something amazing together!
+
+Best regards,
+[Your Name]</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Email_Templates.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 12: Questionnaire -->
+        <div id="tab-questionnaire" class="tab-content">
+            <h2>Client Discovery Questionnaire</h2>
+            <div class="output-container">
+                <textarea spellcheck="false">CLIENT DISCOVERY QUESTIONNAIRE
+
+Project Name: [Project Name]
+
+1. What are the primary goals and success metrics for this project?
+2. Who is your ideal target audience or primary user persona?
+3. Are there existing brand guidelines, color palettes, or moodboards you want to follow?
+4. What is your absolute deadline or hard launch date?</textarea>
+                <div class="actions">
+                    <button class="btn-secondary" onclick="copyText(this)">Copy to Clipboard</button>
+                    <button class="btn-primary" onclick="downloadText('Client_Questionnaire.txt', this)">Download File</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-let storage = {};
+    function switchTab(evt, tabId) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(c => c.classList.remove('active'));
 
-function switchTab(evt, id) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    evt.currentTarget.classList.add('active');
-}
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(b => b.classList.remove('active'));
 
-function gen(id) {
-    let text = "";
-    let d = new Date().toISOString().slice(0, 10);
-
-    if(id === 1) {
-        text = `=== 1. SERVICE CONTRACT ===\nDate: ${d}\nProvider: ${document.getElementById('c_prov').value}\nClient: ${document.getElementById('c_cli').value}\nProject: ${document.getElementById('c_title').value}\nBudget: $${document.getElementById('c_bud').value}\nStatus: Active & Binding.`;
-    } else if(id === 2) {
-        text = `=== 2. SCOPE DEFINITION ===\nDate: ${d}\n\n${document.getElementById('sc_desc').value}\n\nNote: Any tasks outside this definition require a Change Request form.`;
-    } else if(id === 3) {
-        text = `=== 3. PAYMENT MILESTONES ===\nDate: ${d}\n\n${document.getElementById('ms_desc').value}\n\nTerms: Work progresses strictly upon clearing milestone payments.`;
-    } else if(id === 4) {
-        text = `=== 4. REVISION LIMITS AGREEMENT ===\nDate: ${d}\n- Included Revisions: ${document.getElementById('rv_rounds').value} rounds of feedback.\n- Extra Revisions Rate: $${document.getElementById('rv_rate').value}/hour.`;
-    } else if(id === 5) {
-        text = `=== 5. CHANGE REQUEST FORM ===\nDate: ${d}\n- Request: ${document.getElementById('cr_text').value}\n- Extra Cost: $${document.getElementById('cr_cost').value}\n- Timeline Extension: ${document.getElementById('cr_days').value} days.`;
-    } else if(id === 6) {
-        text = `=== 6. PROFESSIONAL INVOICE ===\nInvoice ID: ${document.getElementById('inv_num').value}\nDate: ${d}\nAmount Due: $${document.getElementById('inv_amt').value}\nTerms: Payable upon receipt.`;
-    } else if(id === 7) {
-        text = `=== 7. CLIENT WELCOME PACK ===\nDate: ${d}\nCommunication & Rules:\n${document.getElementById('wp_comm').value}\nThank you for trusting us with your project!`;
-    } else if(id === 8) {
-        text = `=== 8. PROJECT HANDOVER CHECKLIST ===\nDate: ${d}\nDeliverables Handed Over:\n${document.getElementById('ho_text').value}\nProject successfully concluded.`;
-    } else if(id === 9) {
-        text = `=== 9. CANCELLATION AGREEMENT ===\nDate: ${d}\nTerms:\n${document.getElementById('can_text').value}\nBoth parties are released from further obligations upon settlement.`;
-    } else if(id === 10) {
-        text = `=== 10. NON-DISCLOSURE AGREEMENT (NDA) ===\nDate: ${d}\nPurpose: ${document.getElementById('nda_purp').value}\nAll shared proprietary details remain strictly confidential.`;
-    } else if(id === 11) {
-        text = `=== 11. COPYRIGHT TRANSFER DOCUMENT ===\nDate: ${d}\nAssigned Assets: ${document.getElementById('cp_work').value}\nFull legal ownership is assigned upon final payment settlement.`;
-    } else if(id === 12) {
-        text = `=== 12. EMAIL TEMPLATES KIT ===\nSubject: ${document.getElementById('em_sub').value}\n\nDear Client,\nWe are thrilled to start working with you. Please review the attached onboarding documents and let us know if you have any questions.\n\nBest regards,\nFreelancer Team`;
-    } else if(id === 13) {
-        text = `=== 13. CLIENT DISCOVERY QUESTIONNAIRE ===\nDate: ${d}\n\n${document.getElementById('eq_text').value}\n\nPlease fill out this form to help us tailor our deliverables to your exact business vision.`;
+        document.getElementById(tabId).classList.add('active');
+        evt.currentTarget.classList.add('active');
     }
 
-    storage[id] = text;
-    document.getElementById(`prev_${id}`).innerText = text;
-    document.getElementById(`out_${id}`).style.display = 'block';
-}
+    function copyText(btn) {
+        const container = btn.closest('.output-container');
+        const textarea = container.querySelector('textarea');
+        textarea.select();
+        navigator.clipboard.writeText(textarea.value);
+        
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    }
 
-function downloadFile(id, filename) {
-    if (!storage[id]) return;
-    let blob = new Blob([storage[id]], { type: 'text/plain;charset=utf-8' });
-    let link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
-}
+    function downloadText(filename, btn) {
+        const container = btn.closest('.output-container');
+        const textarea = container.querySelector('textarea');
+        const blob = new Blob([textarea.value], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
 </script>
 
 </body>
