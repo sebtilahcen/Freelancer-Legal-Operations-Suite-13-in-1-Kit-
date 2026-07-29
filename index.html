@@ -3,41 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bulletproof Client Contract & Scope Lockdown Suite</title>
+    <title>Freelancer Legal & Business Kit - Ultimate Suite</title>
     <style>
         :root {
-            --bg-main: #090d16;
-            --bg-card: #131c31;
-            --bg-input: #090d16;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --success: #059669;
-            --text-main: #f3f4f6;
+            --bg-main: #0b0f19;
+            --bg-card: #111827;
+            --bg-input: #0b0f19;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --success: #10b981;
+            --text-main: #f9fafb;
             --text-muted: #9ca3af;
             --border: #1f2937;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { background-color: var(--bg-main); color: var(--text-main); padding: 20px; line-height: 1.6; }
-        .wrapper { max-width: 950px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); overflow: hidden; }
-        header { background: linear-gradient(135deg, #131c31, #090d16); padding: 35px 30px; text-align: center; border-bottom: 1px solid var(--border); }
-        header h1 { font-size: 24px; color: #60a5fa; margin-bottom: 8px; font-weight: 800; letter-spacing: 0.5px; }
-        header p { color: var(--text-muted); font-size: 13px; max-width: 650px; margin: 0 auto; }
+        .wrapper { max-width: 1000px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8); overflow: hidden; }
+        header { background: linear-gradient(135deg, #111827, #0b0f19); padding: 35px 30px; text-align: center; border-bottom: 1px solid var(--border); }
+        header h1 { font-size: 26px; color: #60a5fa; margin-bottom: 8px; font-weight: 800; letter-spacing: 0.5px; }
+        header p { color: var(--text-muted); font-size: 13px; max-width: 750px; margin: 0 auto; }
+        
+        .nav-tabs { display: flex; background: #030712; border-bottom: 1px solid var(--border); overflow-x: auto; padding: 6px; gap: 4px; }
+        .tab-btn { flex: 0 0 auto; padding: 10px 16px; background: rgba(31, 41, 55, 0.4); border: 1px solid var(--border); color: var(--text-muted); font-weight: 700; font-size: 11px; cursor: pointer; text-transform: uppercase; white-space: nowrap; transition: all 0.2s; border-radius: 6px; }
+        .tab-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+
         .content { padding: 30px; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+
         .section-title { font-size: 14px; font-weight: 700; color: #60a5fa; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #60a5fa; padding-left: 10px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
         @media(max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+        
         .field { margin-bottom: 18px; }
         label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; }
         input, select, textarea { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-main); padding: 12px 14px; border-radius: 8px; font-size: 14px; transition: all 0.3s; }
         input:focus, select:focus, textarea:focus { outline: none; border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15); }
         textarea { resize: vertical; height: 90px; }
-        .btn-action { display: block; width: 100%; background: var(--accent); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 25px; transition: background 0.2s; }
+        
+        .btn-action { display: block; width: 100%; background: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; transition: background 0.2s; }
         .btn-action:hover { background: var(--accent-hover); }
-        .output-section { margin-top: 35px; display: none; border-top: 2px dashed var(--border); padding-top: 25px; }
-        .contract-preview { background: #090d16; border: 1px solid var(--border); border-radius: 10px; padding: 25px; font-family: "Courier New", Courier, monospace; font-size: 13px; color: #e5e7eb; white-space: pre-wrap; line-height: 1.7; max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
-        .btn-download { background: var(--success); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 700; width: 100%; cursor: pointer; font-size: 14px; transition: opacity 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .output-section { margin-top: 30px; border-top: 2px dashed var(--border); padding-top: 25px; }
+        .document-preview { background: #0b0f19; border: 1px solid var(--border); border-radius: 10px; padding: 20px; font-family: "Courier New", Courier, monospace; font-size: 13px; color: #e5e7eb; white-space: pre-wrap; line-height: 1.7; max-height: 380px; overflow-y: auto; margin-bottom: 15px; }
+        .btn-download { background: var(--success); color: white; border: none; padding: 13px; border-radius: 8px; font-weight: 700; width: 100%; cursor: pointer; font-size: 13px; transition: opacity 0.2s; text-transform: uppercase; }
         .btn-download:hover { opacity: 0.9; }
+        
         footer { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 30px; padding-top: 15px; border-top: 1px solid var(--border); }
     </style>
 </head>
@@ -45,134 +57,245 @@
 
 <div class="wrapper">
     <header>
-        <h1>Bulletproof Client Contract & Scope Suite</h1>
-        <p>Enterprise-grade operational instrument to enforce payment security, eliminate endless scope creep, and legally protect independent creative assets.</p>
+        <h1>Freelancer Legal & Business Kit</h1>
+        <p>Complete Operations Suite: Contracts, Milestones, NDA, Invoices, Welcome Pack & Handover Checklists</p>
     </header>
 
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab(event, 'p1')">1. Contract</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p2')">2. Scope</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p3')">3. Milestones</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p4')">4. Revisions</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p5')">5. Change Req</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p6')">6. Invoice</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p7')">7. Welcome Pack</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p8')">8. Handover</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p9')">9. Cancellation</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p10')">10. NDA</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p11')">11. Copyright</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p12')">12. Emails</button>
+        <button class="tab-btn" onclick="switchTab(event, 'p13')">13. Questions</button>
+    </div>
+
     <div class="content">
-        <div class="section-title">1. Project & Stakeholder Parameters</div>
-        <div class="grid-2">
-            <div class="field">
-                <label>Provider / Freelancer Name</label>
-                <input type="text" id="providerName" placeholder="e.g. John Studio Digital" value="John Studio Digital">
+        <!-- 1. Contract Generator -->
+        <div id="p1" class="panel active">
+            <div class="section-title">1. Contract Generator</div>
+            <div class="grid-2">
+                <div class="field"><label>Provider Name</label><input type="text" id="c_prov" value="Digital Pro Studio"></div>
+                <div class="field"><label>Client Name</label><input type="text" id="c_cli" value="Global Ventures LLC"></div>
             </div>
-            <div class="field">
-                <label>Client / Company Name</label>
-                <input type="text" id="clientName" placeholder="e.g. Apex Global Corp" value="Apex Global Corp">
-            </div>
-        </div>
-        <div class="field">
-            <label>Project Scope Description & Deliverables</label>
-            <textarea id="projectScope" placeholder="Define exact items delivered...">Complete custom digital branding asset suite and high-resolution UI design package.</textarea>
-        </div>
-
-        <div class="section-title">2. Financial Terms & Payment Milestones</div>
-        <div class="grid-3">
-            <div class="field">
-                <label>Total Project Budget ($)</label>
-                <input type="number" id="totalBudget" placeholder="e.g. 2500" value="2500" step="0.01">
-            </div>
-            <div class="field">
-                <label>Upfront Deposit (%)</label>
-                <input type="number" id="depositPct" placeholder="e.g. 50" value="50">
-            </div>
-            <div class="field">
-                <label>Late Fee Penalty (% / Week)</label>
-                <input type="number" id="lateFee" placeholder="e.g. 5" value="5">
+            <div class="field"><label>Project Title</label><input type="text" id="c_title" value="Complete Branding & UI/UX System"></div>
+            <div class="field"><label>Total Budget ($)</label><input type="number" id="c_bud" value="2500"></div>
+            <button class="btn-action" onclick="gen(1)">Generate Contract</button>
+            <div class="output-section" id="out_1" style="display:none;">
+                <div class="document-preview" id="prev_1"></div>
+                <button class="btn-download" onclick="downloadFile(1, 'Contract.txt')">📥 Download Contract</button>
             </div>
         </div>
 
-        <div class="section-title">3. Boundary Enforcement & Scope Lockdown</div>
-        <div class="grid-2">
-            <div class="field">
-                <label>Included Free Revisions (Rounds)</label>
-                <input type="number" id="freeRevisions" placeholder="e.g. 2" value="2">
-            </div>
-            <div class="field">
-                <label>Extra Revision Fee ($ / Round)</label>
-                <input type="number" id="extraRevCost" placeholder="e.g. 150" value="150" step="0.01">
+        <!-- 2. Scope Definition -->
+        <div id="p2" class="panel">
+            <div class="section-title">2. Scope Definition</div>
+            <div class="field"><label>Detailed Scope Breakdown</label><textarea id="sc_desc">1. Brand Identity Assets (Logo, Typography, Color Palettes).\n2. UI/UX Wireframes & Interactive Prototype in Figma.\n3. Frontend Code & Component System Delivery.</textarea></div>
+            <button class="btn-action" onclick="gen(2)">Generate Scope Definition</button>
+            <div class="output-section" id="out_2" style="display:none;">
+                <div class="document-preview" id="prev_2"></div>
+                <button class="btn-download" onclick="downloadFile(2, 'Scope_Definition.txt')">📥 Download Scope</button>
             </div>
         </div>
 
-        <button class="btn-action" onclick="generateContract()">Generate Airtight Contract & Security Protocol</button>
-
-        <div class="output-section" id="outputSection">
-            <div class="section-title">4. Generated Legal Agreement & Scope Lock</div>
-            <div class="contract-preview" id="contractPreviewText"></div>
-            <button class="btn-download" onclick="downloadContractTxt()">📥 Download Official Contract Document (.txt)</button>
+        <!-- 3. Payment Milestones -->
+        <div id="p3" class="panel">
+            <div class="section-title">3. Payment Milestones</div>
+            <div class="field"><label>Milestone Structure</label><textarea id="ms_desc">Milestone 1: Research & Wireframes (50% Deposit - $1,250)\nMilestone 2: Final Design & Handover (50% Balance - $1,250)</textarea></div>
+            <button class="btn-action" onclick="gen(3)">Generate Milestones</button>
+            <div class="output-section" id="out_3" style="display:none;">
+                <div class="document-preview" id="prev_3"></div>
+                <button class="btn-download" onclick="downloadFile(3, 'Payment_Milestones.txt')">📥 Download Milestones</button>
+            </div>
         </div>
+
+        <!-- 4. Revision Limits -->
+        <div id="p4" class="panel">
+            <div class="section-title">4. Revision Limits Agreement</div>
+            <div class="grid-2">
+                <div class="field"><label>Included Revision Rounds</label><input type="number" id="rv_rounds" value="2"></div>
+                <div class="field"><label>Extra Round Hourly Rate ($)</label><input type="number" id="rv_rate" value="75"></div>
+            </div>
+            <button class="btn-action" onclick="gen(4)">Generate Revision Policy</button>
+            <div class="output-section" id="out_4" style="display:none;">
+                <div class="document-preview" id="prev_4"></div>
+                <button class="btn-download" onclick="downloadFile(4, 'Revision_Limits.txt')">📥 Download Policy</button>
+            </div>
+        </div>
+
+        <!-- 5. Change Request Forms -->
+        <div id="p5" class="panel">
+            <div class="section-title">5. Change Request Form (Scope Creep)</div>
+            <div class="field"><label>Extra Feature / Modification</label><textarea id="cr_text">Add multi-language support and an extra dark-mode UI dashboard.</textarea></div>
+            <div class="grid-2">
+                <div class="field"><label>Additional Cost ($)</label><input type="number" id="cr_cost" value="450"></div>
+                <div class="field"><label>Timeline Extension (Days)</label><input type="number" id="cr_days" value="4"></div>
+            </div>
+            <button class="btn-action" onclick="gen(5)">Generate Change Request</button>
+            <div class="output-section" id="out_5" style="display:none;">
+                <div class="document-preview" id="prev_5"></div>
+                <button class="btn-download" onclick="downloadFile(5, 'Change_Request.txt')">📥 Download Form</button>
+            </div>
+        </div>
+
+        <!-- 6. Invoice Template -->
+        <div id="p6" class="panel">
+            <div class="section-title">6. Professional Invoice Template</div>
+            <div class="grid-2">
+                <div class="field"><label>Invoice ID</label><input type="text" id="inv_num" value="INV-2026-001"></div>
+                <div class="field"><label>Amount ($)</label><input type="number" id="inv_amt" value="1250"></div>
+            </div>
+            <button class="btn-action" onclick="gen(6)">Generate Invoice</button>
+            <div class="output-section" id="out_6" style="display:none;">
+                <div class="document-preview" id="prev_6"></div>
+                <button class="btn-download" onclick="downloadFile(6, 'Invoice.txt')">📥 Download Invoice</button>
+            </div>
+        </div>
+
+        <!-- 7. Client Welcome Pack -->
+        <div id="p7" class="panel">
+            <div class="section-title">7. Client Welcome Pack</div>
+            <div class="field"><label>Communication & Operating Hours</label><textarea id="wp_comm">Slack & Email. Available Mon-Fri, response within 24 hours.</textarea></div>
+            <button class="btn-action" onclick="gen(7)">Generate Welcome Pack</button>
+            <div class="output-section" id="out_7" style="display:none;">
+                <div class="document-preview" id="prev_7"></div>
+                <button class="btn-download" onclick="downloadFile(7, 'Welcome_Pack.txt')">📥 Download Welcome Pack</button>
+            </div>
+        </div>
+
+        <!-- 8. Project Handover Checklist -->
+        <div id="p8" class="panel">
+            <div class="section-title">8. Project Handover Checklist</div>
+            <div class="field"><label>Final Assets Summary</label><textarea id="ho_text">1. Figma design system files.\n2. Raw vector assets and typography fonts.\n3. Full source code repository access.</textarea></div>
+            <button class="btn-action" onclick="gen(8)">Generate Handover Checklist</button>
+            <div class="output-section" id="out_8" style="display:none;">
+                <div class="document-preview" id="prev_8"></div>
+                <button class="btn-download" onclick="downloadFile(8, 'Handover_Checklist.txt')">📥 Download Checklist</button>
+            </div>
+        </div>
+
+        <!-- 9. Cancellation Agreement -->
+        <div id="p9" class="panel">
+            <div class="section-title">9. Cancellation Agreement</div>
+            <div class="field"><label>Termination Terms / Kill Fee</label><textarea id="can_text">Project terminated by mutual consent. Completed work billed proportionally, deposit retained.</textarea></div>
+            <button class="btn-action" onclick="gen(9)">Generate Cancellation Agreement</button>
+            <div class="output-section" id="out_9" style="display:none;">
+                <div class="document-preview" id="prev_9"></div>
+                <button class="btn-download" onclick="downloadFile(9, 'Cancellation_Agreement.txt')">📥 Download Agreement</button>
+            </div>
+        </div>
+
+        <!-- 10. NDA -->
+        <div id="p10" class="panel">
+            <div class="section-title">10. Non-Disclosure Agreement (NDA)</div>
+            <div class="field"><label>Purpose of Information Sharing</label><input type="text" id="nda_purp" value="Evaluating proprietary product software designs and business workflows."></div>
+            <button class="btn-action" onclick="gen(10)">Generate NDA</button>
+            <div class="output-section" id="out_10" style="display:none;">
+                <div class="document-preview" id="prev_10"></div>
+                <button class="btn-download" onclick="downloadFile(10, 'NDA_Agreement.txt')">📥 Download NDA</button>
+            </div>
+        </div>
+
+        <!-- 11. Copyright Transfer -->
+        <div id="p11" class="panel">
+            <div class="section-title">11. Copyright Transfer Document</div>
+            <div class="field"><label>Assigned Deliverables</label><input type="text" id="cp_work" value="All final custom graphic illustrations and source code files."></div>
+            <button class="btn-action" onclick="gen(11)">Generate Copyright Transfer</button>
+            <div class="output-section" id="out_11" style="display:none;">
+                <div class="document-preview" id="prev_11"></div>
+                <button class="btn-download" onclick="downloadFile(11, 'Copyright_Transfer.txt')">📥 Download Transfer</button>
+            </div>
+        </div>
+
+        <!-- 12. Email Templates -->
+        <div id="p12" class="panel">
+            <div class="section-title">12. Email Templates Kit</div>
+            <div class="field"><label>Template Type / Subject</label><input type="text" id="em_sub" value="Project Kickoff & Next Steps"></div>
+            <button class="btn-action" onclick="gen(12)">Generate Email Templates</button>
+            <div class="output-section" id="out_12" style="display:none;">
+                <div class="document-preview" id="prev_12"></div>
+                <button class="btn-download" onclick="downloadFile(12, 'Email_Templates.txt')">📥 Download Templates</button>
+            </div>
+        </div>
+
+        <!-- 13. Client Questions -->
+        <div id="p13" class="panel">
+            <div class="section-title">13. Client Discovery Questionnaire</div>
+            <div class="field"><label>Core Onboarding Questions</label><textarea id="eq_text">1. What are your main business objectives for this project?\n2. Who is your primary target audience?\n3. Do you have existing brand guidelines or style preferences?</textarea></div>
+            <button class="btn-action" onclick="gen(13)">Generate Questionnaire</button>
+            <div class="output-section" id="out_13" style="display:none;">
+                <div class="document-preview" id="prev_13"></div>
+                <button class="btn-download" onclick="downloadFile(13, 'Client_Questions.txt')">📥 Download Questionnaire</button>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        The Bulletproof Client Contract & Scope Lockdown Suite &bull; Professional Commercial Instrument
+        Freelancer Legal & Business Kit &bull; Ultimate Enterprise Edition (13-in-1 Suite)
     </footer>
 </div>
 
 <script>
-let globalContractText = "";
+let storage = {};
 
-function generateContract() {
-    let provider = document.getElementById('providerName').value.trim() || "[Provider Name]";
-    let client = document.getElementById('clientName').value.trim() || "[Client Name]";
-    let scope = document.getElementById('projectScope').value.trim() || "[Project Scope Details]";
-    let budget = parseFloat(document.getElementById('totalBudget').value) || 0;
-    let depositPct = parseFloat(document.getElementById('depositPct').value) || 50;
-    let lateFee = parseFloat(document.getElementById('lateFee').value) || 5;
-    let freeRevisions = parseInt(document.getElementById('freeRevisions').value) || 2;
-    let extraRevCost = parseFloat(document.getElementById('extraRevCost').value) || 150;
-
-    let depositAmount = (budget * (depositPct / 100)).toFixed(2);
-    let finalAmount = (budget - depositAmount).toFixed(2);
-    let currentDate = new Date().toISOString().slice(0, 10);
-
-    globalContractText = 
-`=====================================================================
-          BINDING SERVICE AGREEMENT & SCOPE LOCKDOWN PROTOCOL
-=====================================================================
-Effective Date: ${currentDate}
-
-1. PARTIES INVOLVED:
-- Service Provider / Creator: ${provider}
-- Client / Principal: ${client}
-
-2. SCOPE OF WORK & DELIVERABLES:
-${scope}
-Any requests outside the defined scope above will be treated as separate scope additions and billed accordingly.
-
-3. FINANCIAL STRUCTURE & PAYMENT MILESTONES:
-- Total Project Investment: $${budget.toFixed(2)}
-- Upfront Security Deposit (${depositPct}%): $${depositAmount} (Required prior to project kickoff)
-- Final Balance Upon Completion: $${finalAmount} (Due immediately before asset handover)
-- Late Payment Penalty: Invoices unpaid past 7 calendar days will incur a weekly late penalty of ${lateFee}% on the outstanding balance.
-
-4. SCOPE CREEP & REVISION BOUNDARIES:
-- Included Revisions: This agreement covers up to (${freeRevisions}) rounds of minor adjustments to the initial core draft.
-- Additional Revisions: Any extra modifications beyond the included rounds will be billed at a strict rate of $${extraRevCost.toFixed(2)} per individual round, requiring written approval before execution.
-
-5. INTELLECTUAL PROPERTY & OWNERSHIP:
-- Full ownership and commercial exploitation rights of final deliverables transfer to the client ONLY upon receipt of final full payment. Until then, all raw elements and concepts remain the legal property of ${provider}.
-
-6. GOVERNING DISPUTE FRAMEWORK:
-- Both parties agree to resolve any operational discrepancies professionally through direct mediation based on these explicitly logged parameters.
-
----------------------------------------------------------------------
-ACCEPTED AND AGREED BY:
-Provider Signature: ______________________ Date: _________
-Client Principal Signature: ________________ Date: _________
-=====================================================================`;
-
-    document.getElementById('contractPreviewText').innerText = globalContractText;
-    document.getElementById('outputSection').style.display = 'block';
-    document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+function switchTab(evt, id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    evt.currentTarget.classList.add('active');
 }
 
-function downloadContractTxt() {
-    if (!globalContractText) return;
+function gen(id) {
+    let text = "";
+    let d = new Date().toISOString().slice(0, 10);
 
-    let blob = new Blob([globalContractText], { type: 'text/plain;charset=utf-8' });
+    if(id === 1) {
+        text = `=== 1. SERVICE CONTRACT ===\nDate: ${d}\nProvider: ${document.getElementById('c_prov').value}\nClient: ${document.getElementById('c_cli').value}\nProject: ${document.getElementById('c_title').value}\nBudget: $${document.getElementById('c_bud').value}\nStatus: Active & Binding.`;
+    } else if(id === 2) {
+        text = `=== 2. SCOPE DEFINITION ===\nDate: ${d}\n\n${document.getElementById('sc_desc').value}\n\nNote: Any tasks outside this definition require a Change Request form.`;
+    } else if(id === 3) {
+        text = `=== 3. PAYMENT MILESTONES ===\nDate: ${d}\n\n${document.getElementById('ms_desc').value}\n\nTerms: Work progresses strictly upon clearing milestone payments.`;
+    } else if(id === 4) {
+        text = `=== 4. REVISION LIMITS AGREEMENT ===\nDate: ${d}\n- Included Revisions: ${document.getElementById('rv_rounds').value} rounds of feedback.\n- Extra Revisions Rate: $${document.getElementById('rv_rate').value}/hour.`;
+    } else if(id === 5) {
+        text = `=== 5. CHANGE REQUEST FORM ===\nDate: ${d}\n- Request: ${document.getElementById('cr_text').value}\n- Extra Cost: $${document.getElementById('cr_cost').value}\n- Timeline Extension: ${document.getElementById('cr_days').value} days.`;
+    } else if(id === 6) {
+        text = `=== 6. PROFESSIONAL INVOICE ===\nInvoice ID: ${document.getElementById('inv_num').value}\nDate: ${d}\nAmount Due: $${document.getElementById('inv_amt').value}\nTerms: Payable upon receipt.`;
+    } else if(id === 7) {
+        text = `=== 7. CLIENT WELCOME PACK ===\nDate: ${d}\nCommunication & Rules:\n${document.getElementById('wp_comm').value}\nThank you for trusting us with your project!`;
+    } else if(id === 8) {
+        text = `=== 8. PROJECT HANDOVER CHECKLIST ===\nDate: ${d}\nDeliverables Handed Over:\n${document.getElementById('ho_text').value}\nProject successfully concluded.`;
+    } else if(id === 9) {
+        text = `=== 9. CANCELLATION AGREEMENT ===\nDate: ${d}\nTerms:\n${document.getElementById('can_text').value}\nBoth parties are released from further obligations upon settlement.`;
+    } else if(id === 10) {
+        text = `=== 10. NON-DISCLOSURE AGREEMENT (NDA) ===\nDate: ${d}\nPurpose: ${document.getElementById('nda_purp').value}\nAll shared proprietary details remain strictly confidential.`;
+    } else if(id === 11) {
+        text = `=== 11. COPYRIGHT TRANSFER DOCUMENT ===\nDate: ${d}\nAssigned Assets: ${document.getElementById('cp_work').value}\nFull legal ownership is assigned upon final payment settlement.`;
+    } else if(id === 12) {
+        text = `=== 12. EMAIL TEMPLATES KIT ===\nSubject: ${document.getElementById('em_sub').value}\n\nDear Client,\nWe are thrilled to start working with you. Please review the attached onboarding documents and let us know if you have any questions.\n\nBest regards,\nFreelancer Team`;
+    } else if(id === 13) {
+        text = `=== 13. CLIENT DISCOVERY QUESTIONNAIRE ===\nDate: ${d}\n\n${document.getElementById('eq_text').value}\n\nPlease fill out this form to help us tailor our deliverables to your exact business vision.`;
+    }
+
+    storage[id] = text;
+    document.getElementById(`prev_${id}`).innerText = text;
+    document.getElementById(`out_${id}`).style.display = 'block';
+}
+
+function downloadFile(id, filename) {
+    if (!storage[id]) return;
+    let blob = new Blob([storage[id]], { type: 'text/plain;charset=utf-8' });
     let link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `Bulletproof_Client_Contract_${new Date().toISOString().slice(0, 10)}.txt`;
+    link.download = filename;
     link.click();
 }
 </script>
